@@ -1,9 +1,10 @@
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>Henry Dogs</h1>
+      <button className="centerbut">Enter</button>
+      <h1>Henry Dogs by Federico OyB</h1>
     </div>
   );
 }
