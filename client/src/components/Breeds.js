@@ -1,4 +1,4 @@
-import style from '../styles/Breed.module.css'
+import style from "../styles/Breed.module.css";
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import {
@@ -8,24 +8,25 @@ import {
   sort,
   filtroTemp,
 } from "../actions";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
+import Breed from "./Breed";
 
 function Breeds(props) {
-
   // preparar el control para el formulario de seleccion de raza
   const [input, setInput] = useState({
     breed: "",
-  })
+  });
 
   // preparar el paginado
-  const [pagBreeds, setPagBreeds] = useState(1);
+  const [pagBreeds, setPagBreeds] = useState(1); // comienza en página 1
 
   const itemsPPage = 8;
   const totalItems = pagBreeds * itemsPPage;
   const inicialItems = totalItems - itemsPPage;
+  const cantPages = totalItems / itemsPPage;
   const view = props.raza.slice(inicialItems, totalItems);
 
-  console.log(props.raza.slice(inicialItems, totalItems))
+  // console.log(props.raza.slice(inicialItems, totalItems));
 
   useEffect(() => {
     filtraBreed();
@@ -37,19 +38,25 @@ function Breeds(props) {
 
   return (
     <>
+      <div className={style.btnPaginado}>
+        <button onClick={() => { pagBreeds > 1 ? setPagBreeds(pagBreeds - 1) : setPagBreeds(1) }}> 👈 </button>
+        <button>{pagBreeds}</button>
+        <button onClick={() => { pagBreeds < cantPages ? setPagBreeds(pagBreeds + 1) : setPagBreeds(cantPages)}}> 👉 </button>
+      </div>
       <div className={style.container}>
-      {view &&
-        view.map((raza) => (
-          <div className={style.card} key={raza.id}>
-            <Link to={`/details/${raza.id}`}>
-              <img src={raza.img} className={style.imagen} />
-            </Link>
-            <h2>{raza.name}</h2>
-            <p>{raza.temperament}</p>
-          </div>
-        ))}
-        </div>
-        <div className={style.btnPaginado}>
+        {view &&
+          view.map((raza) => (
+            <div className={style.card} key={raza.id}>
+              <Breed
+                id={raza.id}
+                image={raza.img}
+                temperaments={raza.temperament}
+                breed={raza.name}
+              />
+            </div>
+          ))}
+      </div>
+      <div className={style.btnPaginado}>
         <button onClick={() => setPagBreeds(pagBreeds - 1)}> 👈 </button>
         <button>{pagBreeds}</button>
         <button onClick={() => setPagBreeds(pagBreeds + 1)}> 👉 </button>

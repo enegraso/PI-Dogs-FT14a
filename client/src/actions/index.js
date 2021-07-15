@@ -10,7 +10,8 @@ export const DES = 'Breeds-Z-A';
 
 export function getBreedsAll() {
     return function (dispatch){
-        return fetch(`http://localhost:3001/dogs`)
+//        return fetch(`http://localhost:3001/dogs`)
+        return fetch(`http://192.168.0.7:3001/dogs`) // Linea para proar front en notebook y back en PC
         .then(response => response.json())
         .then(json => {
             dispatch({type: GET_BREEDS_ALL, payload : json})
@@ -22,7 +23,8 @@ export function getBreedsAll() {
 
 export function getBreedsDetails(razaId) {
 	return function (dispatch){
-        return fetch(`http://localhost:3001/dogs/${razaId}`)
+        // return fetch(`http://localhost:3001/dogs/${razaId}`)
+        return fetch(`http://192.168.0.7:3001/dogs/${razaId}`) // Linea para proar front en notebook y back en PC
         .then(response => response.json())
         .then(json => {
             dispatch({type: GET_BREED_DETAIL, payload : json})

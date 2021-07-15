@@ -12,7 +12,7 @@
     width:440px;
     height: 100%;
     background: #FFE000;  /* fallback for old browsers */
-/*     background: -webkit-linear-gradient(to left, #799F0C, #FFE000); */  /* Chrome 10-25, Safari 5.1-6 */
+     background: -webkit-linear-gradient(to left, #799F0C, #FFE000);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to left, #799F0C, #FFE000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
     left:-390px;
 }
@@ -45,12 +45,9 @@ left:0;
 margin-left:0%;
 }
 
-
-
 .btn{
     height: 34px;
 }
-
 
 nav{
     background: #FFE000;  /* fallback for old browsers */
@@ -69,12 +66,14 @@ nav{
     display: flex;
     order:3;
 }
+
 .crear{
     display: flex;
     order:4;
     text-decoration: none;
     font-family: 'Stick', sans-serif;
 }
+
 .fTemp{
     height: 35px;
     display: flex;
@@ -91,15 +90,16 @@ nav{
     /* padding-top: 40px; */
     width: 100%;
     max-width: 1200px;
-    height: 430px;
+/*     height: 430px; */
     display: flex;
     flex-wrap: wrap;
     justify-content:space-around;
-    margin-left:auto; 
+    margin-left: auto; 
 }
+
 .container .card{
     width: 330px;
-    height: 430px;
+    height: auto;
     border-radius:8px;
     box-shadow: 0 2px 2px rgba(0,0,0,0.2);
     overflow: hidden;
@@ -120,8 +120,7 @@ nav{
 
 .btnPaginado{
     text-align: center;
-    padding: 5%;
-    margin-top: 75%;
+    padding: 1em;
 }
 
 .formul{
