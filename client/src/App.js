@@ -10,7 +10,7 @@ function App() {
     <>
       <Route path="/" exact component={Intro} />
       <Route path="/home" component={Home} />
-      <Route path='/home'><Breeds/></Route>
+      <Route path='/breeds'><Breeds/></Route>
       <Route path="/addbreed" component={AddBreed} />
 {/*       <Route path="/detalles/:id" component={Detalles} />
       <Route path="/crearRaza" component={Form} /> */}

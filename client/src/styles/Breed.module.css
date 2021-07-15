@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Stick&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+
+#navig{
+    position: fixed;
+    width:440px;
+    height: 100%;
+    background: #FFE000;  /* fallback for old browsers */
+/*     background: -webkit-linear-gradient(to left, #799F0C, #FFE000); */  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #799F0C, #FFE000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    left:-390px;
+}
+
+ul li {
+    text-align: center;
+    list-style: none;
+    padding: 15px 10px;
+}
+
+.toggleBtn{
+    position:absolute;
+    left:393px;
+    top:20px;
+    cursor: pointer;
+    
+}
+
+.toggleBtn span{
+    display: block;
+    width: 40px;
+    text-align: center;
+    font-size: 25px;
+    border:1px solid black;
+    border-radius: 10%;
+}
+
+#navig.active{
+left:0;
+margin-left:0%;
+}
+
+
+
+.btn{
+    height: 34px;
+}
+
+
+nav{
+    background: #FFE000;  /* fallback for old browsers */
+     background: -webkit-linear-gradient(to left, #799F0C, #FFE000);   /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #799F0C, #FFE000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 60px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content:space-around;
+    align-items: center;
+    
+}
+
+.fOrder{
+    height: 35px;
+    display: flex;
+    order:3;
+}
+.crear{
+    display: flex;
+    order:4;
+    text-decoration: none;
+    font-family: 'Stick', sans-serif;
+}
+.fTemp{
+    height: 35px;
+    display: flex;
+    order:2;
+}
+.fRaza{
+    height: 35px;
+    display: flex;
+    order:1;
+}
+
+
+.container{
+    /* padding-top: 40px; */
+    width: 100%;
+    max-width: 1200px;
+    height: 430px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    margin-left:auto; 
+}
+.container .card{
+    width: 330px;
+    height: 430px;
+    border-radius:8px;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+    overflow: hidden;
+    margin:20px;
+    text-align: center;
+    transition: all 0.25s;
+}
+
+.container .card:hover{
+    transform: translateY(-15px);
+    box-shadow: 0 12px 16px rgba(0,0,0,0.2);
+}
+
+.container .card .imagen{
+    width: 330px;
+    height: 220px;
+}
+
+.btnPaginado{
+    text-align: center;
+    padding: 5%;
+    margin-top: 75%;
+}
+
+.formul{
+    display: flex;
+}
+.btn{
+    margin-left:5px
+}
+
+
+
+
+@media screen and (max-width:375px){
+    #navig{
+        width:375px;    
+        left:-300px;
+    }
+
+    .toggleBtn{
+        left:317px;   
+        
+    }
+
+    .formul{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .btn{
+        margin-top: 2%;
+        width: 50%;
+    }
+
+    .container{
+        margin-left: 14px;
+        display: flex;
+        order:1
+        
+    }
+    .container .card{
+        width: 260px;
+        height: 400px;
+       
+    }
+
+
+    .container .card .imagen{
+        width: 220px;
+        height: 200px;
+    }
+    .btnPaginado{
+        text-align: center;
+        display: flex;
+        order:0;
+        justify-self: flex-start;
+
+        
+    }
+
+    .movil{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        
+
+    }
+}
+
+
+
