@@ -21,7 +21,7 @@ export function getBreedsAll() {
 }
 
 
-export function getBreedsDetails(razaId) {
+export function getBreedDetails(razaId) {
 	return function (dispatch){
         // return fetch(`http://localhost:3001/dogs/${razaId}`)
         return fetch(`http://192.168.0.7:3001/dogs/${razaId}`) // Linea para proar front en notebook y back en PC
@@ -34,7 +34,8 @@ export function getBreedsDetails(razaId) {
 
 export function getBreed(breedName) {
     return function (dispatch){
-        return fetch(`http://localhost:3001/dogs?name=${breedName}`)
+//        return fetch(`http://localhost:3001/dogs?name=${breedName}`)
+return fetch(`http://192.168.0.7:3001/dogs?name=${breedName}`)
         .then(response => response.json())
         .then(json => {
             dispatch({type: GET_BREED, payload : json})
@@ -46,7 +47,8 @@ export function getBreed(breedName) {
 
 export function getTemperaments() {
     return function (dispatch){
-        return fetch(`http://localhost:3001/temperament`)
+//        return fetch(`http://localhost:3001/temperament`)
+        return fetch(`http://192.168.0.7:3001/temperament`)
         .then(response => response.json())
         .then(json => {
             dispatch({type: GET_TEMPERAMENT, payload : json})

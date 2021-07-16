@@ -23,25 +23,83 @@ function Breeds(props) {
   const itemsPPage = 8;
   const totalItems = pagBreeds * itemsPPage;
   const inicialItems = totalItems - itemsPPage;
-  const cantPages = totalItems / itemsPPage;
+  const cantPages = Math.round(props.raza.length / itemsPPage);
   const view = props.raza.slice(inicialItems, totalItems);
 
-  // console.log(props.raza.slice(inicialItems, totalItems));
+  console.log(props.raza.length, inicialItems, totalItems, cantPages);
 
   useEffect(() => {
     filtraBreed();
+    filtraTempe();
   }, []);
 
   function filtraBreed() {
     props.getBreedsAll();
   }
 
+  function filtraTempe() {
+    props.getTemperaments();
+  }
+
+  // manejo input de filtro de razas
+  function handleInput(event) {
+    setInput({
+      ...input,
+      [event.target.name]: event.target.value,
+    });
+  }
+
+  function handleDispatchBreed(e) {
+    e.preventDefault();
+
+    if (input.raza) {
+      props.getBreed(input.raza);
+    } else {
+      alert("Input breed, please");
+    }
+  }
+  // manejo input de filtro de razas
   return (
     <>
-      <div className={style.btnPaginado}>
-        <button onClick={() => { pagBreeds > 1 ? setPagBreeds(pagBreeds - 1) : setPagBreeds(1) }}> 👈 </button>
-        <button>{pagBreeds}</button>
-        <button onClick={() => { pagBreeds < cantPages ? setPagBreeds(pagBreeds + 1) : setPagBreeds(cantPages)}}> 👉 </button>
+      <div className={style.optBar}>
+        <form className={style.formul} onSubmit={handleDispatchBreed}>
+          <div>
+            <input
+              type="text"
+              autoComplete="off"
+              placeholder="Breeds"
+              name="raza"
+              value={input.raza}
+              onChange={handleInput}
+            />
+          </div>
+          <button className={style.btn} type="submit">
+            Search
+          </button>
+        </form>
+        <div className={style.btnPaginado}>
+          <button
+            onClick={() => {
+              pagBreeds > 1 ? setPagBreeds(pagBreeds - 1) : setPagBreeds(1);
+            }}
+          >
+            {" "}
+            👈{" "}
+          </button>
+          <button>
+            page {pagBreeds} of {Math.round(cantPages)}
+          </button>
+          <button
+            onClick={() => {
+              pagBreeds < cantPages
+                ? setPagBreeds(pagBreeds + 1)
+                : setPagBreeds(cantPages);
+            }}
+          >
+            {" "}
+            👉{" "}
+          </button>
+        </div>
       </div>
       <div className={style.container}>
         {view &&
@@ -57,9 +115,27 @@ function Breeds(props) {
           ))}
       </div>
       <div className={style.btnPaginado}>
-        <button onClick={() => { pagBreeds > 1 ? setPagBreeds(pagBreeds - 1) : setPagBreeds(1) }}> 👈 </button>
-        <button>{pagBreeds}</button>
-        <button onClick={() => { pagBreeds < cantPages ? setPagBreeds(pagBreeds + 1) : setPagBreeds(cantPages)}}> 👉 </button>
+        <button
+          onClick={() => {
+            pagBreeds > 1 ? setPagBreeds(pagBreeds - 1) : setPagBreeds(1);
+          }}
+        >
+          {" "}
+          👈{" "}
+        </button>
+        <button>
+          page {pagBreeds} of {Math.round(cantPages)}
+        </button>
+        <button
+          onClick={() => {
+            pagBreeds < cantPages
+              ? setPagBreeds(pagBreeds + 1)
+              : setPagBreeds(cantPages);
+          }}
+        >
+          {" "}
+          👉{" "}
+        </button>
       </div>
     </>
   );
