@@ -57,9 +57,9 @@ function Breeds(props) {
           ))}
       </div>
       <div className={style.btnPaginado}>
-        <button onClick={() => setPagBreeds(pagBreeds - 1)}> 👈 </button>
+        <button onClick={() => { pagBreeds > 1 ? setPagBreeds(pagBreeds - 1) : setPagBreeds(1) }}> 👈 </button>
         <button>{pagBreeds}</button>
-        <button onClick={() => setPagBreeds(pagBreeds + 1)}> 👉 </button>
+        <button onClick={() => { pagBreeds < cantPages ? setPagBreeds(pagBreeds + 1) : setPagBreeds(cantPages)}}> 👉 </button>
       </div>
     </>
   );
