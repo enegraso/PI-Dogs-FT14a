@@ -145,7 +145,7 @@ nav {
 .optBar {
     display: flex;
     flex-wrap: wrap;
-    height: 3em;
+    height: auto;
     width: auto;
     background-color: beige;
     justify-content: space-around;
@@ -190,6 +190,7 @@ nav {
     width: 220px;
     height: 200px;
   }
+  
   .btnPaginado {
     text-align: center;
     display: flex;

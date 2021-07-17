@@ -5,7 +5,7 @@ export const GET_BREEDS_ALL = "GET_BRREDS_ALL";
 export const GET_BREED = "GET_BRRED";
 export const GET_TEMPERAMENT = "GET_TEMPERAMENT";
 export const SORT_BREED = "SORT_BREED";
-export const ASD = 'Breeds-A-Z';
+export const ASC = 'Breeds-A-Z';
 export const DES = 'Breeds-Z-A';
 
 export function getBreedsAll() {
@@ -17,9 +17,7 @@ export function getBreedsAll() {
             dispatch({type: GET_BREEDS_ALL, payload : json})
         })
     }
-
 }
-
 
 export function getBreedDetails(razaId) {
 	return function (dispatch){
@@ -43,8 +41,6 @@ return fetch(`http://192.168.0.7:3001/dogs?name=${breedName}`)
     }
 }
 
-
-
 export function getTemperaments() {
     return function (dispatch){
 //        return fetch(`http://localhost:3001/temperament`)
@@ -56,7 +52,6 @@ export function getTemperaments() {
     }
 }
 
-
 export function sort(order, breeds){
     let sortBreed = [...breeds]
 
@@ -64,7 +59,7 @@ export function sort(order, breeds){
         var nombreA = a.name.toUpperCase();
         var nombreB = b.name.toUpperCase();
 
-        if(order === ASD){
+        if(order === ASC){
             if(nombreA < nombreB){
                 return -1;
             }
@@ -98,7 +93,6 @@ export function filtroTemp(actualBreed, temperament){
             return false
         }
     })
-
     return function(dispatch){
         dispatch({type:SORT_BREED, payload: filtro})
     }

@@ -7,8 +7,9 @@ import {
   getTemperaments,
   sort,
   filtroTemp,
+  ASC,
+  DES,
 } from "../actions";
-import { Link } from "react-router-dom";
 import Breed from "./Breed";
 
 function Breeds(props) {
@@ -23,10 +24,11 @@ function Breeds(props) {
   const itemsPPage = 8;
   const totalItems = pagBreeds * itemsPPage;
   const inicialItems = totalItems - itemsPPage;
-  const cantPages = Math.round(props.raza.length / itemsPPage);
-  const view = props.raza.slice(inicialItems, totalItems);
+  const cantPages = Math.ceil(props.raza.length / itemsPPage);
+  const view = props.raza.slice(inicialItems, totalItems); //props.raza.slice(inicialItems, totalItems);
+  var todosItems
 
-  console.log(props.raza.length, inicialItems, totalItems, cantPages);
+  console.log(props.temperament.length,props.temperament,props.raza.length, inicialItems, totalItems, cantPages);
 
   useEffect(() => {
     filtraBreed();
@@ -49,19 +51,69 @@ function Breeds(props) {
     });
   }
 
-  function handleDispatchBreed(e) {
-    e.preventDefault();
+  {/*  Handle para Filtrar por raza */}
+  function handleDispatchBreeds(e) {
+    props.getBreed(e.target.value);
+    setPagBreeds(1) // ir a página 1 si me encuentro en una que no existe en filtro de raza
+  }
 
-    if (input.raza) {
-      props.getBreed(input.raza);
-    } else {
-      alert("Input breed, please");
+  {/*  Handle para Ordenar las razas */}
+  function handleDispatchOrder(event) {
+    if (event.target.value === ASC || event.target.value === DES) {
+      props.sort(event.target.value, props.raza);
     }
   }
-  // manejo input de filtro de razas
+
+  {/*  Handle para Buscar por raza */}
+  function handleDispatchBreed(e) {
+    e.preventDefault();
+    if (input.raza) {
+      // busco raza por cadena de texto en input
+      props.getBreed(input.raza);
+    } else {
+      // dejando el input de raza vacio limpio busqueda anterior
+      props.getBreedsAll()
+    }
+    setPagBreeds(1) // ir a página 1 si me encuentro en una que no existe en la busqueda de raza
+  }
+
+function handleDispatchTempe(e) {
+  // props.getBreedsAll() 
+    props.filtroTemp(props.filtrada, e.target.value);
+    setPagBreeds(1) // ir a página 1 si me encuentro en una que no existe en el filtro
+  }
+
+
   return (
     <>
-      <div className={style.optBar}>
+      <div className={style.optBar}>{/*   Barra con las opciones de filtros, busquedas y ordenamientos */}
+      {/*  Filtrar por raza */}
+        <select
+          name="selectBreed"
+          value={input.selectBreed}
+          onChange={handleDispatchBreeds}
+          className={style.fRaza}
+        >
+          <option value="">Breeds</option>
+          {props.raza &&
+            props.raza.map((elem) => (
+              <option key={elem.id}>{elem.name}</option>
+            ))}
+        </select>
+      {/*  Filtrar por temperamento */}
+        <select
+          name="nameTempe"
+          value={input.nameTempe}
+          onChange={handleDispatchTempe}
+          className={style.fTemp}
+        >
+          <option value="">Temperaments</option>
+          {props.temperament &&
+            props.temperament.map((elem) => (
+              <option value={elem.name}>{elem.name}</option>
+            ))}
+        </select>
+              {/*  Buscar raza específica */}
         <form className={style.formul} onSubmit={handleDispatchBreed}>
           <div>
             <input
@@ -74,10 +126,11 @@ function Breeds(props) {
             />
           </div>
           <button className={style.btn} type="submit">
-            Search
+            🔍
           </button>
         </form>
         <div className={style.btnPaginado}>
+          <button onClick={() => setPagBreeds(1)}>⬅</button>
           <button
             onClick={() => {
               pagBreeds > 1 ? setPagBreeds(pagBreeds - 1) : setPagBreeds(1);
@@ -86,9 +139,9 @@ function Breeds(props) {
             {" "}
             👈{" "}
           </button>
-          <button>
+          <label>
             page {pagBreeds} of {Math.round(cantPages)}
-          </button>
+            </label>
           <button
             onClick={() => {
               pagBreeds < cantPages
@@ -99,7 +152,13 @@ function Breeds(props) {
             {" "}
             👉{" "}
           </button>
+          <button onClick={() => setPagBreeds(cantPages)}>➡</button>
         </div>
+        <select onChange={handleDispatchOrder} className={style.fOrder}>
+          <option>Ordering</option>
+          <option value={ASC}>Upward</option>
+          <option value={DES}>Descendant</option>
+        </select>
       </div>
       <div className={style.container}>
         {view &&
@@ -114,29 +173,6 @@ function Breeds(props) {
             </div>
           ))}
       </div>
-      <div className={style.btnPaginado}>
-        <button
-          onClick={() => {
-            pagBreeds > 1 ? setPagBreeds(pagBreeds - 1) : setPagBreeds(1);
-          }}
-        >
-          {" "}
-          👈{" "}
-        </button>
-        <button>
-          page {pagBreeds} of {Math.round(cantPages)}
-        </button>
-        <button
-          onClick={() => {
-            pagBreeds < cantPages
-              ? setPagBreeds(pagBreeds + 1)
-              : setPagBreeds(cantPages);
-          }}
-        >
-          {" "}
-          👉{" "}
-        </button>
-      </div>
     </>
   );
 }
@@ -145,6 +181,7 @@ function mapStateToProps(state) {
   return {
     raza: state.breeds,
     temperament: state.temperament,
+    filtrada: state.auxBreeds
   };
 }
 

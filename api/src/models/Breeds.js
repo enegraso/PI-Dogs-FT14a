@@ -4,16 +4,21 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
 
     sequelize.define('breeds', {
+        id: {
+            type: DataTypes.UUID,
+            allowNull: false,
+            primaryKey: true,
+          },
         name: {
             type: DataTypes.STRING,
             allowNull: false
         },
         heightmin: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         heightmax: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         weightmin: {
@@ -25,7 +30,8 @@ module.exports = (sequelize) => {
             allowNull: false
         },
         years: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: true
         }
     })
 }

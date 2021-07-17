@@ -23,6 +23,7 @@ fetch(`https://api.thedogapi.com/v1/breeds/?api_key=${API_KEY}`) // Obtengo todo
                 temps.map(t => { // creo un nuevo array con los temperamentos
                     if (!temp.find(tp => tp.name === t)) { // y si aún no está el temperamento en el array
                         temp.push({ name: t }); // lo agrego 
+                        console.log(t)
                     }
                 });
             }
