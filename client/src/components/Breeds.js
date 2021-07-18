@@ -11,6 +11,7 @@ import {
   DES,
 } from "../actions";
 import Breed from "./Breed";
+import { Link } from "react-router-dom"
 
 function Breeds(props) {
   // preparar el control para el formulario de seleccion de raza
@@ -26,9 +27,7 @@ function Breeds(props) {
   const inicialItems = totalItems - itemsPPage;
   const cantPages = Math.ceil(props.raza.length / itemsPPage);
   const view = props.raza.slice(inicialItems, totalItems); //props.raza.slice(inicialItems, totalItems);
-  var todosItems
 
-  console.log(props.temperament.length,props.temperament,props.raza.length, inicialItems, totalItems, cantPages);
 
   useEffect(() => {
     filtraBreed();
@@ -159,6 +158,9 @@ function handleDispatchTempe(e) {
           <option value={ASC}>Upward</option>
           <option value={DES}>Descendant</option>
         </select>
+        <div className={style.btnPaginado}>
+          <Link to='/addbreed'><button> Add Breed </button></Link>
+        </div>
       </div>
       <div className={style.container}>
         {view &&

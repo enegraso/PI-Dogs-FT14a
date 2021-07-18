@@ -5,7 +5,7 @@ function Breed({ id, breed, image, temperaments }) {
   return (
     <>
       <Link to={`/detail/${id}`}>
-        <img src={image} className={style.imagen} />
+        <img src={image} alt="breed's img" className={style.imagen} />
       </Link>
       <h2>{breed}</h2>
       <p>{temperaments}</p>

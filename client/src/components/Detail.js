@@ -3,15 +3,20 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { getBreedDetails } from "../actions/index";
 
+function goBack() {
+  window.history.go(-1);
+}
+
 function Detail(props) {
     
   useEffect(() => {
     const breedId = props.match.params.id;
     props.getBreedDetails(breedId);
-  }, []);
+  },[]);
 
   return (
     <>
+      <button onClick={() => {goBack()}}>Volver</button>
       <div className={style.wc}>
         <div className={style.container}>
           <div className={style.card_container}>
@@ -22,7 +27,6 @@ function Detail(props) {
                 width="400"
                 height="300"
               />
-
               <h2>{props.razaDetail.name}</h2>
               <h4 className={style.text_white}>{props.razaDetail.temperament}</h4>
             </div>
