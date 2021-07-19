@@ -5,7 +5,7 @@ import { getTemperaments } from "../actions/index";
 
 function AddBreed(props) {
   const [input, setInput] = useState({
-    breed: "",
+    name: "",
     heightmin: 0,
     heightmax: 0,
     weightmin: 0,
@@ -29,10 +29,10 @@ function AddBreed(props) {
     var emailPattern = /\S+@\S+\.\S+/; // Expresion Regular para validar Emails.
     var encontrado;
     let errors = {};
-    if (!input.breed) {
-      errors.breed = "breed is required";
+    if (!input.name) {
+      errors.name = "breed is required";
     } else if (input.breed.length < 2) {
-      errors.breed = "breed is too short";
+      errors.name = "breed is too short";
     }  
     if (!input.heightmin) {
       errors.heightmin = "Min heigth is required";
@@ -90,20 +90,20 @@ function AddBreed(props) {
       <form onSubmit={handleSubmit}>
         <div>
           <label>Breed's name</label>
-          <input className={errors.breed && style.danger}
+          <input className={errors.name && style.danger}
             placeholder="Name"
             type="text"
-            name="breed"
+            name="name"
             required="required"
-            value={input.breed}
+            value={input.name}
             onChange={handleChange}
           />
-             {errors.breed && <p className={style.danger}>{errors.breed}</p>}
+             {errors.name && <p className={style.danger}>{errors.name}</p>}
         </div>
         <div>
           <label>Heigth min:</label>
           <input className={errors.heightmin && style.danger}
-            placeholder="Heigth"
+            placeholder="Min Heigth"
             type="number"
             name="heightmin"
             required="required"
@@ -115,7 +115,7 @@ function AddBreed(props) {
         <div>
           <label>Heigth max:</label>
           <input className={errors.heightmax && style.danger}
-            placeholder="Heigth"
+            placeholder="Max Heigth"
             type="number"
             name="heightmax"
             required="required"
@@ -127,7 +127,7 @@ function AddBreed(props) {
         <div>
           <label>Weigth min:</label>
           <input className={errors.weightmin && style.danger}
-            placeholder="Heigth"
+            placeholder="Min Weigth"
             type="number"
             name="weightmin"
             required="required"
@@ -139,7 +139,7 @@ function AddBreed(props) {
         <div>
           <label>Weigth max:</label>
           <input className={errors.weightmax && style.danger}
-            placeholder="Heigth"
+            placeholder="Max Weigth"
             type="number"
             name="weightmax"
             required="required"
@@ -151,7 +151,7 @@ function AddBreed(props) {
         <div>
           <label>Years min:</label>
           <input className={errors.yearsmin && style.danger}
-            placeholder="Heigth"
+            placeholder="Min years"
             type="number"
             name="yearsmin"
             required="required"
