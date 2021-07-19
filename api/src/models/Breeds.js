@@ -9,7 +9,7 @@ module.exports = (sequelize) => {
             allowNull: false,
             primaryKey: true,
           },
-        name: {
+        breed: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -29,9 +29,14 @@ module.exports = (sequelize) => {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        years: {
+        yearsmin: {
             type: DataTypes.INTEGER,
             allowNull: true
-        }
+        },
+        yearsmax: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+
     })
 }
