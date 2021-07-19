@@ -105,7 +105,6 @@
     display: flex;
     flex-wrap: wrap;
     height: auto;
-    /* background-color: beige; */
     background: #ffe000; /* fallback for old browsers */
     background: -webkit-linear-gradient(
       to right,

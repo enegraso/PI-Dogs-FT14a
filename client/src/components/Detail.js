@@ -1,5 +1,5 @@
 import style from "../styles/Detail.module.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getBreedDetails } from "../actions/index";
 
@@ -16,12 +16,12 @@ function Detail(props) {
   return (
     <>
       <div className={style.wc}>
-      <button
+      <button className={style.btn}
         onClick={() => {
           goBack();
         }}
       >
-        Volver
+        Go Back 👈
       </button>
         <div className={style.container}>
           <div className={style.card_container}>
@@ -53,12 +53,12 @@ function Detail(props) {
             </div>
           </div>
         </div>
-        <button
+        <button className={style.btn}
         onClick={() => {
           goBack();
         }}
       >
-        Volver
+        Go Back 👈
       </button>
       </div>
     </>
