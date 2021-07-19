@@ -12,15 +12,13 @@
   padding: 20px;
 }
 
-
 .container{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    
+/*     height: 100vh;   */  
     font-family: 'Open Sans', sans-serif;
-    padding: 20px;
+     padding: 20px; 
 }
 
 .card_container{
@@ -42,7 +40,7 @@
 }
 
 .header, .description{
-    padding:20px;
+     padding:20px;
     text-align: start;
 }
 

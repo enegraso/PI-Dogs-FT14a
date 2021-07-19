@@ -8,16 +8,21 @@ function goBack() {
 }
 
 function Detail(props) {
-    
   useEffect(() => {
     const breedId = props.match.params.id;
     props.getBreedDetails(breedId);
-  },[]);
+  }, []);
 
   return (
     <>
-      <button onClick={() => {goBack()}}>Volver</button>
       <div className={style.wc}>
+      <button
+        onClick={() => {
+          goBack();
+        }}
+      >
+        Volver
+      </button>
         <div className={style.container}>
           <div className={style.card_container}>
             <div className={style.header}>
@@ -28,22 +33,33 @@ function Detail(props) {
                 height="300"
               />
               <h2>{props.razaDetail.name}</h2>
-              <h4 className={style.text_white}>{props.razaDetail.temperament}</h4>
+              <h4 className={style.text_white}>
+                {props.razaDetail.temperament}
+              </h4>
             </div>
             <div className={style.description}>
               <p className={style.wc}>
                 <strong>Breed's Detail</strong>
               </p>
-
-              <p className={style.text_white}>Height: {props.razaDetail.height}</p>
-              <p className={style.text_white}>Weight: {props.razaDetail.weight}</p>
-
+              <p className={style.text_white}>
+                Height: {props.razaDetail.height}
+              </p>
+              <p className={style.text_white}>
+                Weight: {props.razaDetail.weight}
+              </p>
               <p className={style.text_white}>
                 Life Span: {props.razaDetail.life_span}
               </p>
             </div>
           </div>
         </div>
+        <button
+        onClick={() => {
+          goBack();
+        }}
+      >
+        Volver
+      </button>
       </div>
     </>
   );

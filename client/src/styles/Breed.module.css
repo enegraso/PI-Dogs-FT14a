@@ -5,30 +5,6 @@
   padding: 0;
 }
 
-#navig {
-  position: fixed;
-  width: 440px;
-  height: 100%;
-  background: #ffe000; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to left,
-    #799f0c,
-    #ffe000
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to left,
-    #799f0c,
-    #ffe000
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  left: -390px;
-}
-
-ul li {
-  text-align: center;
-  list-style: none;
-  padding: 15px 10px;
-}
-
 .toggleBtn {
   position: absolute;
   left: 393px;
@@ -54,24 +30,6 @@ ul li {
   height: 34px;
 }
 
-nav {
-  background: #ffe000; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to left,
-    #799f0c,
-    #ffe000
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to left,
-    #799f0c,
-    #ffe000
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  height: 60px;
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-around;
-  align-items: center;
-}
 
 .fOrder {
   height: 35px;
@@ -147,10 +105,22 @@ nav {
     display: flex;
     flex-wrap: wrap;
     height: auto;
-    width: auto;
-    background-color: beige;
+    /* background-color: beige; */
+    background: #ffe000; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #799f0c,
+      #ffe000
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #799f0c,
+      #ffe000
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     justify-content: space-around;
     align-items: center;
+    width:100%;
+
 }
 
 @media screen and (max-width: 375px) {
