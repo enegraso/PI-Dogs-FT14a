@@ -12,10 +12,10 @@ const fetch = require("node-fetch");
 
 let idRaza = 300;
 router.post("/dogs", async function (req, res) {
-    const { breed, heightmin, heightmax, weightmin, weightmax, yearsmin, yearsmax, temper } = req.body;
+    const { name, heightmin, heightmax, weightmin, weightmax, yearsmin, yearsmax, temper } = req.body;
     const objAdd = {
         id: uuidv4(),
-        breed,
+        name,
         heightmin,
         heightmax,
         weightmin,

@@ -1,7 +1,7 @@
 Objeto para probar el POST con thunder client
 NO va ("id": 48,) , ya que lo carga solo el modelo
 {
-        "breed":"lolo",
+        "name":"lolo",
         "heightmin":50,
         "heightmax":60,
         "weightmin":20,
@@ -11,7 +11,7 @@ NO va ("id": 48,) , ya que lo carga solo el modelo
         "temper":[1]
 }
 {
-        "breed":"lolo pelolo",
+        "name":"lolo pelolo",
         "heightmin":50,
         "heightmax":60,
         "weightmin":20,

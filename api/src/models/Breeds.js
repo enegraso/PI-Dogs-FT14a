@@ -9,7 +9,7 @@ module.exports = (sequelize) => {
             allowNull: false,
             primaryKey: true,
           },
-        breed: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false
         },
