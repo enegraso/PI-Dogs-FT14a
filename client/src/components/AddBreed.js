@@ -12,7 +12,7 @@ function AddBreed(props) {
     weightmax: 0,
     yearsmin: 0,
     yerasmax: 0,
-    temper: 0
+    temper: []
   });
 
 /*   const [checkTempe, setCheckTempe] = ({
@@ -26,7 +26,6 @@ function AddBreed(props) {
   }, []);
 
   function validate(input) {
-    var emailPattern = /\S+@\S+\.\S+/; // Expresion Regular para validar Emails.
     var encontrado;
     let errors = {};
     if (!input.name) {
@@ -159,8 +158,8 @@ function AddBreed(props) {
             onChange={handleChange}
           />
              {errors.yearsmin && <p className={style.danger}>{errors.yearsmin}</p>}
-{/*         </div>
-        <div> */}
+       </div>
+        <div>
           <label>Years max:</label>
           <input className={errors.yearsmax && style.danger}
             placeholder="Heigth"
@@ -173,15 +172,16 @@ function AddBreed(props) {
              {errors.yearsmax && <p className={style.danger}>{errors.yearsmax}</p>}
         </div>
         <div>
-          <label>Choose Temperament</label>
-        <select name="temper" value={input.nameTempe} onChange={handleChange} required>
+           <label>Choose Temperament</label>
+
+        <select multiple name="temper" value={input.temper} onChange={handleChange} required>
           <option value="">Temperaments</option>
           {props.temperament && props.temperament.map(elem => (
             <option value={elem.id}>{elem.name}</option>
           ))}
         </select>
         </div>
-        <input type="submit" value="Create Race" />
+        <input type="submit" value="Create Breed" />
       </form>
       </div>
           </>

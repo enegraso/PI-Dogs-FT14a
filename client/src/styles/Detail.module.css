@@ -12,6 +12,10 @@
   padding: 20px;
 }
 
+.btn {
+    padding: 1rem
+}
+
 .container{
     display: flex;
     align-items: center;

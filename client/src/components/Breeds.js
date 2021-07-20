@@ -19,8 +19,10 @@ function Breeds(props) {
     breed: "",
   });
 
+
   // preparar el paginado
   const [pagBreeds, setPagBreeds] = useState(1); // comienza en página 1
+ 
 
   const itemsPPage = 8;
   const totalItems = pagBreeds * itemsPPage;
@@ -33,6 +35,7 @@ function Breeds(props) {
     filtraBreed();
     filtraTempe();
   }, []);
+
 
   function filtraBreed() {
     props.getBreedsAll();
