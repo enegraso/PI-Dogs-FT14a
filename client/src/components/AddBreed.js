@@ -31,7 +31,7 @@ function AddBreed(props) {
     let errors = {};
     if (!input.name) {
       errors.name = "breed is required";
-    } else if (input.breed.length < 2) {
+    } else if (input.name.length < 2) {
       errors.name = "breed is too short";
     }  
     if (!input.heightmin) {
