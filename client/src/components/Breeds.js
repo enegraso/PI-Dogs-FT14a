@@ -38,7 +38,8 @@ function Breeds(props) {
 
 
   function filtraBreed() {
-    props.getBreedsAll();
+    props.getBreedsAll()
+    props.sort(ASC, props.raza);
   }
 
   function filtraTempe() {
@@ -96,7 +97,7 @@ function handleDispatchTempe(e) {
           onChange={handleDispatchBreeds}
           className={style.fRaza}
         >
-          <option value="">Breeds</option>
+          <option key="0" value="">Breeds</option>
           {props.raza &&
             props.raza.map((elem) => (
               <option key={elem.id}>{elem.name}</option>
@@ -112,7 +113,7 @@ function handleDispatchTempe(e) {
           <option value="">Temperaments</option>
           {props.temperament &&
             props.temperament.map((elem) => (
-              <option value={elem.name}>{elem.name}</option>
+              <option key={elem.name} value={elem.name}>{elem.name}</option>
             ))}
         </select>
               {/*  Buscar raza específica */}

@@ -11,13 +11,9 @@ function AddBreed(props) {
     weightmin: 0,
     weightmax: 0,
     yearsmin: 0,
-    yerasmax: 0,
-    temper: []
+    yearsmax: 0,
+    temper: [],
   });
-
-/*   const [checkTempe, setCheckTempe] = ({
-
-  }) */
 
   const [errors, setErrors] = React.useState({});
 
@@ -32,7 +28,7 @@ function AddBreed(props) {
       errors.name = "breed is required";
     } else if (input.name.length < 2) {
       errors.name = "breed is too short";
-    }  
+    }
     if (!input.heightmin) {
       errors.heightmin = "Min heigth is required";
     }
@@ -46,10 +42,10 @@ function AddBreed(props) {
       errors.weightmax = "Max weigth is required";
     }
     if (!input.yearsmin) {
-      errors.yearsmin = "Min years span life is required"
+      errors.yearsmin = "Min years span life is required";
     }
     if (!input.yearsmax) {
-      errors.yearsmax = "Max years span life is required"
+      errors.yearsmax = "Max years span life is required";
     }
     return errors;
   }
@@ -70,12 +66,13 @@ function AddBreed(props) {
     setInput({
       ...input,
       [e.target.name]: e.target.value,
-    })
+    });
     setErrors(
       validate({
         ...input,
         [e.target.name]: e.target.value,
-      }))
+      })
+    );
   }
 
   function handleDispatch() {
@@ -86,105 +83,135 @@ function AddBreed(props) {
     <>
       <h1>Create breed form</h1>
       <div className={style.cajaform}>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Breed's name</label>
-          <input className={errors.name && style.danger}
-            placeholder="Name"
-            type="text"
-            name="name"
-            required="required"
-            value={input.name}
-            onChange={handleChange}
-          />
-             {errors.name && <p className={style.danger}>{errors.name}</p>}
-        </div>
-        <div>
-          <label>Heigth min:</label>
-          <input className={errors.heightmin && style.danger}
-            placeholder="Min Heigth"
-            type="number"
-            name="heightmin"
-            required="required"
-            value={input.heightmin}
-            onChange={handleChange}
-          />
-             {errors.heightmin && <p className={style.danger}>{errors.heightmin}</p>}
-        </div>
-        <div>
-          <label>Heigth max:</label>
-          <input className={errors.heightmax && style.danger}
-            placeholder="Max Heigth"
-            type="number"
-            name="heightmax"
-            required="required"
-            value={input.heightmax}
-            onChange={handleChange}
-          />
-             {errors.heightmax && <p className={style.danger}>{errors.heightmax}</p>}
-        </div>
-        <div>
-          <label>Weigth min:</label>
-          <input className={errors.weightmin && style.danger}
-            placeholder="Min Weigth"
-            type="number"
-            name="weightmin"
-            required="required"
-            value={input.weightmin}
-            onChange={handleChange}
-          />
-             {errors.weightmin && <p className={style.danger}>{errors.weightmin}</p>}
-        </div>
-        <div>
-          <label>Weigth max:</label>
-          <input className={errors.weightmax && style.danger}
-            placeholder="Max Weigth"
-            type="number"
-            name="weightmax"
-            required="required"
-            value={input.weightmax}
-            onChange={handleChange}
-          />
-             {errors.weightmax && <p className={style.danger}>{errors.weightmax}</p>}
-        </div>
-        <div>
-          <label>Years min:</label>
-          <input className={errors.yearsmin && style.danger}
-            placeholder="Min years"
-            type="number"
-            name="yearsmin"
-            required="required"
-            value={input.yearsmin}
-            onChange={handleChange}
-          />
-             {errors.yearsmin && <p className={style.danger}>{errors.yearsmin}</p>}
-       </div>
-        <div>
-          <label>Years max:</label>
-          <input className={errors.yearsmax && style.danger}
-            placeholder="Heigth"
-            type="number"
-            name="yearsmax"
-            required="required"
-            value={input.yearsmax}
-            onChange={handleChange}
-          />
-             {errors.yearsmax && <p className={style.danger}>{errors.yearsmax}</p>}
-        </div>
-        <div>
-           <label>Choose Temperament</label>
-
-        <select multiple name="temper" value={input.temper} onChange={handleChange} required>
-          <option value="">Temperaments</option>
-          {props.temperament && props.temperament.map(elem => (
-            <option value={elem.id}>{elem.name}</option>
-          ))}
-        </select>
-        </div>
-        <input type="submit" value="Create Breed" />
-      </form>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>Breed's name</label>
+            <input
+              className={errors.name && style.danger}
+              placeholder="Name"
+              type="text"
+              name="name"
+              required="required"
+              value={input.name}
+              onChange={handleChange}
+            />
+            {errors.name && <p className={style.danger}>{errors.name}</p>}
+          </div>
+          <div>
+            <label>Heigth min:</label>
+            <input
+              className={errors.heightmin && style.danger}
+              placeholder="Min Heigth"
+              type="number"
+              name="heightmin"
+              required="required"
+              value={input.heightmin}
+              onChange={handleChange}
+            />
+            {errors.heightmin && (
+              <p className={style.danger}>{errors.heightmin}</p>
+            )}
+          </div>
+          <div>
+            <label>Heigth max:</label>
+            <input
+              className={errors.heightmax && style.danger}
+              placeholder="Max Heigth"
+              type="number"
+              name="heightmax"
+              required="required"
+              value={input.heightmax}
+              onChange={handleChange}
+            />
+            {errors.heightmax && (
+              <p className={style.danger}>{errors.heightmax}</p>
+            )}
+          </div>
+          <div>
+            <label>Weigth min:</label>
+            <input
+              className={errors.weightmin && style.danger}
+              placeholder="Min Weigth"
+              type="number"
+              name="weightmin"
+              required="required"
+              value={input.weightmin}
+              onChange={handleChange}
+            />
+            {errors.weightmin && (
+              <p className={style.danger}>{errors.weightmin}</p>
+            )}
+          </div>
+          <div>
+            <label>Weigth max:</label>
+            <input
+              className={errors.weightmax && style.danger}
+              placeholder="Max Weigth"
+              type="number"
+              name="weightmax"
+              required="required"
+              value={input.weightmax}
+              onChange={handleChange}
+            />
+            {errors.weightmax && (
+              <p className={style.danger}>{errors.weightmax}</p>
+            )}
+          </div>
+          <div>
+            <label>Years min:</label>
+            <input
+              className={errors.yearsmin && style.danger}
+              placeholder="Min years"
+              type="number"
+              name="yearsmin"
+              required="required"
+              value={input.yearsmin}
+              onChange={handleChange}
+            />
+            {errors.yearsmin && (
+              <p className={style.danger}>{errors.yearsmin}</p>
+            )}
+          </div>
+          <div>
+            <label>Years max:</label>
+            <input
+              className={errors.yearsmax && style.danger}
+              placeholder="Max years"
+              type="number"
+              name="yearsmax"
+              required="required"
+              value={input.yearsmax}
+              onChange={handleChange}
+            />
+            {errors.yearsmax && (
+              <p className={style.danger}>{errors.yearsmax}</p>
+            )}
+          </div>
+          <div>
+            <label>Choose Temperament</label>
+            <select
+              width="100%"
+              multiple
+              name="temper"
+              value={input.temper}
+              onChange={handleChange}
+              required
+            >
+              <option key="0" value="">
+                Select Temperaments
+              </option>
+              {props.temperament &&
+                props.temperament.map((elem) => (
+                  <option key={elem.id} value={elem.id}>
+                    {elem.name}
+                  </option>
+                ))}
+            </select>
+          </div>
+          <input type="submit" value="Create Breed" />
+        </form>
       </div>
-          </>
+    </>
   );
 }
 
