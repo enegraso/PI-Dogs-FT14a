@@ -14,7 +14,6 @@ function App() {
       <Route path='/breeds'><Breeds/></Route>
       <Route path="/addbreed" component={AddBreed} />
       <Route path="/detail/:id" component={Detail} />
-{/*      <Route path="/crearRaza" component={Form} /> */}
     </>
   );
 }
