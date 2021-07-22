@@ -4,9 +4,9 @@ import {Link} from 'react-router-dom'
 function Breed({ id, breed, image, temperaments }) {
   return (
     <>
-      <Link to={`/detail/${id}`}>
+      <Link to={`/detail/${id}`}> 
         <img src={image} alt="breed's img" className={style.imagen} />
-      </Link>
+       </Link> 
       <h2>{breed}</h2>
       <p>{temperaments}</p>
     </>

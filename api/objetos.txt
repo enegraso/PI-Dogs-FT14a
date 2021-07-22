@@ -11,7 +11,7 @@ NO va ("id": 48,) , ya que lo carga solo el modelo
         "temper":[1]
 }
 {
-        "name":"lolo pelolo",
+        "name":"lolo basset pelolo",
         "heightmin":50,
         "heightmax":60,
         "weightmin":20,

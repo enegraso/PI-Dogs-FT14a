@@ -10,7 +10,7 @@ var express = require("express");
 var router = express.Router();
 
 //👇 Requiero Fetch que hasta ahora es el que se usar 👇
-const fetch = require("node-fetch")
+const fetch = require("node-fetch") 
 
 // ruta de temperamentos
 let temp = [];

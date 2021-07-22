@@ -21,9 +21,6 @@ function Detail(props) {
 
   return (
     <>
-    {console.log(props.razaDetail.name)}
-      <div className={style.wc}>
-
        <button className={style.centerbut}
         onClick={() => {
           goBack();
@@ -31,14 +28,15 @@ function Detail(props) {
       >
         Go Back 👈
       </button> 
+      <div className={style.wc}>
         <div className={style.container}>
           <div className={style.card_container}>
             <div className={style.header}>
               <img
                 src={props.razaDetail.img}
                 className={style.imagen}
-                width="400"
-                height="300"
+               /*  width="400"
+                height="300" */
                 alt="img breed"
               />
               <h2>{props.razaDetail.name}</h2>

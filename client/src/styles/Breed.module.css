@@ -76,7 +76,7 @@
   margin: 20px;
   text-align: center;
   transition: all 0.25s;
-  background-color: beige;
+  background-color: rgb(245, 245, 220, .8);
 }
 
 .container .card:hover {
