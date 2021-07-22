@@ -5,8 +5,12 @@ export const GET_BREEDS_ALL = "GET_BRREDS_ALL";
 export const GET_BREED = "GET_BRRED";
 export const GET_TEMPERAMENT = "GET_TEMPERAMENT";
 export const SORT_BREED = "SORT_BREED";
+export const CLEAR_DETAIL = "CLEAR_DETAIL"
 export const ASC = 'Breeds-A-Z';
 export const DES = 'Breeds-Z-A';
+export const SORT_WEIGHT = "SORT_WEIGHT";
+export const PASC = 'Weight-A-Z';
+export const PDES = 'Weight-Z-A';
 
 export function getBreedsAll() {
     return function (dispatch){
@@ -83,6 +87,37 @@ export function sort(order, breeds){
     }
 }
 
+export function sortweight(order, breeds){
+    let sortWeight = [...breeds]
+
+    sortWeight.sort(function(a,b){
+        var pesoA = a.weight.toUpperCase();
+        var pesoB = b.weight.toUpperCase();
+
+        if(order === PASC){
+            if(pesoA < pesoB){
+                return -1;
+            }
+            if(pesoA > pesoB){
+                return 1
+            }
+            return 0
+        }
+        if(order === PDES){
+            if(pesoA < pesoB){
+                return 1;
+            }
+            if(pesoA > pesoB){
+                return -1
+            }
+            return 0
+        }
+    })
+    return function(dispatch){
+        dispatch({type: SORT_WEIGHT, payload: sortWeight})
+    }
+}
+
 export function filtroTemp(actualBreed, temperament){
     let filtro = [...actualBreed];
     filtro = filtro.filter(actual =>{
@@ -95,5 +130,11 @@ export function filtroTemp(actualBreed, temperament){
     })
     return function(dispatch){
         dispatch({type:SORT_BREED, payload: filtro})
+    }
+}
+
+export function cleardetail() {
+    return function(dispatch){
+        dispatch({type: CLEAR_DETAIL, payload: {}})
     }
 }

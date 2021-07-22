@@ -4,6 +4,8 @@ import {
   GET_BREED,
   GET_TEMPERAMENT,
   SORT_BREED,
+  SORT_WEIGHT,
+  CLEAR_DETAIL
 } from "../actions/index";
 
 const initialState = {
@@ -47,6 +49,20 @@ function rootReducer(state = initialState, action) {
     return {
       ...state,
       breeds: action.payload,
+    };
+  }
+
+  if (action.type === SORT_WEIGHT) {
+    return {
+      ...state,
+      breeds: action.payload,
+    };
+  }
+
+  if (action.type === CLEAR_DETAIL) {
+    return {
+      ...state,
+      breedDetail: action.payload,
     };
   }
 

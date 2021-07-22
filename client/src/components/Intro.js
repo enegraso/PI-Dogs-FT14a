@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 function Intro() {
   return (
     <div className="App">
-      <h1>Henry Dogs SPA</h1>
+      <div className="title">Henry Dogs SPA</div>
       <img src={logo} alt="logo inicial" />
       <br />
       <Link to="/breeds">
         <button className="centerbut">Enter</button>
       </Link>
-      <h1>by Federico OyB</h1>
+      <div className="title">by Federico OyB</div>
     </div>
   );
 }

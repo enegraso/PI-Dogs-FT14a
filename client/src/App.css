@@ -7,6 +7,20 @@
   pointer-events: none;
 }
 
+.title {
+  display: flex;
+  justify-content: center;
+  align-items:center; 
+  font-size:xx-large;
+  font-weight: bolder;
+  background: #c2cf12;
+  background: -webkit-linear-gradient(to right, #bccf12 0%, #CF1512 100%);
+  background: -moz-linear-gradient(to right, #c2cf12 0%, #CF1512 100%);
+  background: linear-gradient(to right, #bccf12 0%, #CF1512 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -35,7 +49,9 @@ body {
 }
 
 .centerbut {
-  margin: 3em;
+  padding: 1em;
+  font-size: large;
+  border-radius: 1em;
 }
 
 @keyframes App-logo-spin {

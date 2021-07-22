@@ -97,8 +97,21 @@
 .formul {
   display: flex;
 }
+
 .btn {
   margin-left: 5px;
+}
+
+.centerbut {
+  display: flex;
+  align-items: center;
+  padding: .5em;
+  font-size: large;
+  border-radius: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  color:beige;
+  background: blue;
 }
 
 .optBar {
@@ -119,7 +132,14 @@
     justify-content: space-around;
     align-items: center;
     width:100%;
+}
 
+.imgloader {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 @media screen and (max-width: 375px) {

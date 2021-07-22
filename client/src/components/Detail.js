@@ -1,28 +1,36 @@
 import style from "../styles/Detail.module.css";
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { getBreedDetails } from "../actions/index";
-
-function goBack() {
-  window.history.go(-1);
-}
+import { getBreedDetails, cleardetail } from "../actions/index";
 
 function Detail(props) {
+
+  function goBack() {
+    props.cleardetail()
+    window.history.go(-1);
+  } 
+
   useEffect(() => {
     const breedId = props.match.params.id;
     props.getBreedDetails(breedId);
   }, []);
 
+  if (!props.razaDetail.name) {
+    return <img className={style.imgloader} src="https://i.gifer.com/ZZ5H.gif" alt="loader" />;
+  }
+
   return (
     <>
+    {console.log(props.razaDetail.name)}
       <div className={style.wc}>
-      <button className={style.btn}
+
+       <button className={style.centerbut}
         onClick={() => {
           goBack();
         }}
       >
         Go Back 👈
-      </button>
+      </button> 
         <div className={style.container}>
           <div className={style.card_container}>
             <div className={style.header}>
@@ -31,6 +39,7 @@ function Detail(props) {
                 className={style.imagen}
                 width="400"
                 height="300"
+                alt="img breed"
               />
               <h2>{props.razaDetail.name}</h2>
               <h4 className={style.text_white}>
@@ -53,7 +62,7 @@ function Detail(props) {
             </div>
           </div>
         </div>
-        <button className={style.btn}
+        <button className={style.centerbut}
         onClick={() => {
           goBack();
         }}
@@ -74,6 +83,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     getBreedDetails: (id) => dispatch(getBreedDetails(id)),
+    cleardetail: () => dispatch(cleardetail())
   };
 }
 
