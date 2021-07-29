@@ -12,6 +12,9 @@ import {
   DES,
   PASC,
   PDES,
+  sortspan,
+  TASC,
+TDESC
 } from "../actions";
 import Breed from "./Breed";
 import { Link } from "react-router-dom";
@@ -226,6 +229,7 @@ function mapDispatchToProps(dispatch) {
     sort: (elem1, elem2) => dispatch(sort(elem1, elem2)),
     sortweight: (elem1, elem2) => dispatch(sortweight(elem1, elem2)),
     filtroTemp: (elem1, elem2) => dispatch(filtroTemp(elem1, elem2)),
+
   };
 }
 

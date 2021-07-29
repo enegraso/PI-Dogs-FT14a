@@ -17,9 +17,9 @@ configure({adapter: new Adapter()});
 
 describe('<Breed />', () => {
   let wrapper;
-  let title;
+  let temperaments;
   beforeEach(() => {
-    title = 'escuchar musica';
+    temperaments = 'escuchar musica';
     wrapper =  mount(<Breed temperaments={temperaments} />)
   })
 
