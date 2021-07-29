@@ -11,9 +11,7 @@ export const DES = 'Breeds-Z-A';
 export const SORT_WEIGHT = "SORT_WEIGHT";
 export const PASC = 'Weight-A-Z';
 export const PDES = 'Weight-Z-A';
-export const SORT_SPAN = "SORT_SPAN"
-export const TASC = "Span-A-Z";
-export const TASC = "Span-Z-A";
+
 
 export function getBreedsAll() {
     return function (dispatch){
@@ -140,13 +138,4 @@ export function cleardetail() {
     return function(dispatch){
         dispatch({type: CLEAR_DETAIL, payload: {}})
     }
-}
-
-export function sortspan(order, breeds) {
-    let sortSpan = [...breeds]
-
-    sortSpan.sort = function(a,b) {
-        
-    }
-    return {type: SORT_SPAN, payload: sortSpan}
 }
