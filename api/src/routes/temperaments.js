@@ -16,7 +16,7 @@ const fetch = require("node-fetch")
 let temp = [];
 fetch(`https://api.thedogapi.com/v1/breeds/?api_key=${API_KEY}`) // Obtengo todos los temperamentos que se encuentran en las razas
     .then(response => response.json())
-    .then(json => {
+    .then(json => { console.log("Agrego los temperamentos a un array previo a guardarlos...")
         json.map(tempe => {
             if (tempe.temperament) { // Solo si la raza tiene temperamentos
                 let temps = tempe.temperament.split(', '); // Como puede haber mas de un temperamento los separo por comma y espacio
@@ -25,12 +25,12 @@ fetch(`https://api.thedogapi.com/v1/breeds/?api_key=${API_KEY}`) // Obtengo todo
                         temp.push({ name: t }); // lo agrego 
                         console.log(t)
                     }
-                });
+                }); 
             }
         })
     })
-    .then(() => {
-        temp.map(t => { // los datos obtenidos en la promesa anterior
+    .then(() => { console.log("Empiezo a guardar los temperamentos...")
+        temp.map(t => {  // los datos obtenidos en la promesa anterior
             Temperaments.findOrCreate({ // Si ya está en la tabla queda o lo agrego si aun no está
                 where: {
                     name: t.name
