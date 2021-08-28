@@ -1,5 +1,4 @@
-require('dotenv').config()
-const REACT_APP_API = process.env.REACT_APP_API
+import { REACT_APP_API } from '../store/entorno'
 
 // Declaro las acciones a dispatch
 
