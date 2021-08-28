@@ -17,14 +17,16 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+require('dotenv').config()
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
+const PORT = process.env.PORT
 
 // Syncing all the models at once.
 conn.sync({ force: false })
     .then(() => { // el force: true elimina la tabla si existe y pierde su contenido
     // mientras hago las pruebas de conexión no voy a tener dramas
-    server.listen(3001, () => {
+    server.listen(PORT, () => {
         console.log('%s listening at 3001'); // eslint-disable-line no-console
     });
 });
