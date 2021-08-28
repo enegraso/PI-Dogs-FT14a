@@ -1,4 +1,5 @@
-//                       _oo0oo_
+require('dotenv').config()
+//                   _oo0oo_
 //                      o8888888o
 //                      88" . "88
 //                      (| -_- |)
