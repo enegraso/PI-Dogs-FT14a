@@ -21,7 +21,8 @@ const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => { // el force: true elimina la tabla si existe y pierde su contenido
+conn.sync({ force: false })
+    .then(() => { // el force: true elimina la tabla si existe y pierde su contenido
     // mientras hago las pruebas de conexión no voy a tener dramas
     server.listen(3001, () => {
         console.log('%s listening at 3001'); // eslint-disable-line no-console

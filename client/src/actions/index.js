@@ -1,3 +1,6 @@
+require('dotenv').config()
+const REACT_APP_API = process.env.REACT_APP_API
+
 // Declaro las acciones a dispatch
 
 export const GET_BREED_DETAIL = "GET_BREED_DETAIL";
@@ -13,9 +16,11 @@ export const PASC = 'Weight-A-Z';
 export const PDES = 'Weight-Z-A';
 
 
+
 export function getBreedsAll() {
     return function (dispatch){
-        return fetch(`http://localhost:3001/dogs`)
+        console.log(REACT_APP_API,"React API")
+        return fetch(`${REACT_APP_API}/dogs`)
 //        return fetch(`http://192.168.0.7:3001/dogs`) // Linea para proar front en notebook y back en PC
         .then(response => response.json())
         .then(json => {
@@ -26,7 +31,7 @@ export function getBreedsAll() {
 
 export function getBreedDetails(razaId) {
 	return function (dispatch){
-        return fetch(`http://localhost:3001/dogs/${razaId}`)
+        return fetch(`${REACT_APP_API}/dogs/${razaId}`)
 //        return fetch(`http://192.168.0.7:3001/dogs/${razaId}`) // Linea para proar front en notebook y back en PC
         .then(response => response.json())
         .then(json => {
@@ -37,7 +42,7 @@ export function getBreedDetails(razaId) {
 
 export function getBreed(breedName) {
     return function (dispatch){
-        return fetch(`http://localhost:3001/dogs?name=${breedName}`)
+        return fetch(`${REACT_APP_API}/dogs?name=${breedName}`)
 // return fetch(`http://192.168.0.7:3001/dogs?name=${breedName}`)
         .then(response => response.json())
         .then(json => {
@@ -48,7 +53,7 @@ export function getBreed(breedName) {
 
 export function getTemperaments() {
     return function (dispatch){
-        return fetch(`http://localhost:3001/temperament`)
+        return fetch(`${REACT_APP_API}/temperament`)
 //        return fetch(`http://192.168.0.7:3001/temperament`)
         .then(response => response.json())
         .then(json => {

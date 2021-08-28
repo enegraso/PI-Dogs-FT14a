@@ -30,8 +30,8 @@ fetch(`https://api.thedogapi.com/v1/breeds/?api_key=${API_KEY}`) // Obtengo todo
         })
     })
     .then(() => { console.log("Empiezo a guardar los temperamentos...")
-        temp.map(t => {  // los datos obtenidos en la promesa anterior
-            Temperaments.findOrCreate({ // Si ya está en la tabla queda o lo agrego si aun no está
+        temp.map(async t => {  // los datos obtenidos en la promesa anterior
+            await Temperaments.findOrCreate({ // Si ya está en la tabla queda o lo agrego si aun no está
                 where: {
                     name: t.name
                 }
