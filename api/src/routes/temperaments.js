@@ -12,9 +12,10 @@ var router = express.Router();
 //👇 Requiero Fetch que hasta ahora es el que se usar 👇
 const fetch = require("node-fetch") 
 
-// ruta de temperamentos
-let temp = [];
-fetch(`https://api.thedogapi.com/v1/breeds/?api_key=${API_KEY}`) // Obtengo todos los temperamentos que se encuentran en las razas
+router.get('/obtemperaments', async (req,res) => {
+
+let temp=[]
+await fetch(`https://api.thedogapi.com/v1/breeds/?api_key=${API_KEY}`) // Obtengo todos los temperamentos que se encuentran en las razas
     .then(response => response.json())
     .then(json => { console.log("Agrego los temperamentos a un array previo a guardarlos...")
         json.map(tempe => {
@@ -29,7 +30,8 @@ fetch(`https://api.thedogapi.com/v1/breeds/?api_key=${API_KEY}`) // Obtengo todo
             }
         })
     })
-    .then(() => { console.log("Empiezo a guardar los temperamentos...")
+    .then(() => { 
+        console.log("Empiezo a guardar los temperamentos...")
         temp.map(async t => {  // los datos obtenidos en la promesa anterior
             await Temperaments.findOrCreate({ // Si ya está en la tabla queda o lo agrego si aun no está
                 where: {
@@ -37,8 +39,9 @@ fetch(`https://api.thedogapi.com/v1/breeds/?api_key=${API_KEY}`) // Obtengo todo
                 }
             })
         })
+        res.status(200).send("Guardado con exito")
     })
-    .catch(err => console.error(err));
+    .catch(err => console.error(err)) } )
 
 
 router.get('/temperament', async function(req, res) {
