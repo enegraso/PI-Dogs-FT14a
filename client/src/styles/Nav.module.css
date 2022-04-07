@@ -1,0 +1,15 @@
+.navbar {
+    position: absolute;
+    display: flex;
+    top: 0em;
+    left: 0em;
+    height: 3em;
+    width: 100%;
+    background-color: rgb(241, 238, 255);
+    color: white;
+    font-size: larger;
+    margin-bottom: 1em;
+    align-items: center;
+    text-decoration: none;
+    justify-content: space-around;
+}

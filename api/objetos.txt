@@ -1,0 +1,22 @@
+Objeto para probar el POST con thunder client
+NO va ("id": 48,) , ya que lo carga solo el modelo
+{
+        "name":"lolo",
+        "heightmin":50,
+        "heightmax":60,
+        "weightmin":20,
+        "weightmax":30,
+        "yearsmin":15,
+        "yearsmax":20,
+        "temper":[1]
+}
+{
+        "name":"lolo basset pelolo",
+        "heightmin":50,
+        "heightmax":60,
+        "weightmin":20,
+        "weightmax":30,
+        "yearsmin":15,
+        "yearsmax":20,
+        "temper":[2,4,10]
+}

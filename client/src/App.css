@@ -1,0 +1,64 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items:center; 
+  font-size:xx-large;
+  font-weight: bolder;
+  background: #c2cf12;
+  background: -webkit-linear-gradient(to right, #bccf12 0%, #CF1512 100%);
+  background: -moz-linear-gradient(to right, #c2cf12 0%, #CF1512 100%);
+  background: linear-gradient(to right, #bccf12 0%, #CF1512 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+body {
+  background-image: url('https://www.bunko.pet/__export/1612206169398/sites/debate/img/2021/02/01/cxmo_entrenar_a_un_golden_retriever_desde_cachorro_hasta_adulto_crop1612206122324.jpeg_1902800913.jpeg');
+  background-size:cover;
+  background-attachment: fixed;
+}
+
+.centerbut {
+  padding: 1em;
+  font-size: large;
+  border-radius: 1em;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
