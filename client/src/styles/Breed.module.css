@@ -85,8 +85,8 @@
 }
 
 .container .card .imagen {
-  width: 330px;
-  height: 220px;
+  width: 100% /* 330px */;
+  height: auto /* 220px */;
 }
 
 .btnPaginado {
@@ -142,6 +142,7 @@
   margin-bottom: auto;
 }
 
+
 @media screen and (max-width: 375px) {
   #navig {
     width: 375px;
@@ -173,14 +174,19 @@
 
   .container .card {
     width: 260px;
-    height: 400px;
+    height: auto /* 300px */;
   }
 
   .container .card .imagen {
-    width: 220px;
-    height: 200px;
+    padding-top: 1em;
+    width: 90% /* 220px */;
+    height: auto /* 200px */;
   }
   
+  p {
+    padding-bottom: 1em;
+  }
+
   .btnPaginado {
     text-align: center;
     display: flex;
