@@ -40,12 +40,12 @@ function Breeds(props) {
   }, []);
 
   function filtraBreed() {
-    if (props.breeds.length < 1)
+    if (!props.breeds)
     props.getBreedsAll();
   }
 
   function filtraTempe() {
-    if (props.temperaments.length < 1)
+    if (!props.temperaments)
     props.getTemperaments();
   }
 
